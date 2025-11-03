@@ -39,8 +39,8 @@ This starter template provides a complete authentication UI implementation with 
 
 ```bash
 # Clone the repository
-git clone <your-repo-url>
-cd auth-frontend
+git clone https://github.com/ayar-12/auth
+cd Frontend
 
 # Install dependencies
 npm install
