@@ -68,7 +68,7 @@ npm run build
 npm run preview
 ```
 
-The application will be available at `http://localhost:5173` (default Vite port).
+The application will be available at `http://localhost:5173`
 
 ## Backend Requirements
 
@@ -119,7 +119,6 @@ auth-frontend/
 │   │   ├── auth/        # Authentication slice (authApi, userSlice)
 │   │   └── user/        # User management
 │   ├── pages/           # Page components (Login, Register)
-│   ├── theme/           # MUI theme configuration
 │   ├── utils/           # Helper functions and validators
 │   ├── App.jsx          # Root component
 │   └── main.jsx         # Application entry point
@@ -136,19 +135,19 @@ auth-frontend/
 |------|-----------|-------------|
 | **Logo** | `src/assets/logo.*` | Replace with your brand logo (SVG/PNG) |
 | **App Name** | `src/config/brand.js` | Update application name and metadata |
-| **Primary Colors** | `src/theme/index.js` | Modify color palette (primary, secondary) |
-| **Typography** | `src/theme/typography.js` | Customize fonts and text styles |
+| **Primary Colors** | `src/theme.ts` | Modify color palette (primary, secondary) |
+| **Typography** | `src/theme.ts` | Customize fonts and text styles |
 | **API URL** | `.env` | Set backend base URL |
 
 ### Example: Updating Theme Colors
 
-Edit `src/theme/index.js`:
+Edit `src/theme.ts`:
 
 ```javascript
 export const theme = createTheme({
   palette: {
     primary: {
-      main: '#1976d2', // Your brand color
+      main: '#1976d2', ||  Your brand color  
     },
     secondary: {
       main: '#dc004e',
@@ -164,21 +163,20 @@ export const theme = createTheme({
 ```javascript
 {
   auth: {
-    user: null | { id, email, name, ... },
+    user: null | { id, email, name, phone  },
     accessToken: string | null,
     refreshToken: string | null,
     isAuthenticated: boolean
   },
   api: {
-    queries: { /* RTK Query cache */ },
-    mutations: { /* API mutation state */ }
+    queries:
+    mutations: 
   }
 }
 ```
 
 ### Key Files
 
-- **`src/features/auth/authApi.js`**: RTK Query API definitions
 - **`src/features/auth/userSlice.js`**: Authentication state slice
 - **`src/store/store.js`**: Redux store configuration
 
@@ -214,14 +212,8 @@ The optimized production build will be in the `dist/` directory.
 
 Ensure the following environment variables are set in your deployment platform:
 
-- `VITE_API_BASE_URL`: Your production API URL
+- `VITE_API_BASE_URL`: Your production API URL || localhost:3000
 
-### Recommended Hosting Platforms
-
-- **Vercel** (recommended for Vite projects)
-- **Netlify**
-- **AWS S3 + CloudFront**
-- **Digital Ocean App Platform**
 
 ## Contributing
 
@@ -233,18 +225,14 @@ Contributions are welcome! Please follow these steps:
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Support
 
 For issues, questions, or contributions, please open an issue on GitHub or contact the maintainers.
 
 ## Acknowledgments
 
-Built with modern React patterns and best practices for authentication flows. Inspired by real-world production applications.
+Built with modern React patterns and best practices for authentication flows. Inspired by real world production applications.
 
 ---
 
-**Note**: This is a frontend-only starter. You must implement your own backend API to handle authentication logic, database operations, and token management.
+**Note**: This is a frontend only. You must implement your own backend API to handle authentication logic database operations and token management.
